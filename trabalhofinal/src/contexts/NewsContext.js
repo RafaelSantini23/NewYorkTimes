@@ -1,15 +1,29 @@
+import { createContext, useState } from "react";
+import api from '../api'
 
-import { createContext } from "react";
 
-export const NewsContext = createContext();
+export const NewsContext = createContext()
 
-function NewsProvider({ children }) {
- 
+function NewsProvider({children}) {
+
+  const [ dados, setDados ] = useState({})
+
+  const getNews = async () => {
+    try {
+      const { data } = await api.get("arts.json?api-key=LK7ZHPbBRzDb2WvGKTWDDOJmkjKppZ80");
+      setDados(data.results)
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  
   return (
-    <NewsContext.Provider>
+    <NewsContext.Provider value={{ getNews, dados }}>
       {children}
     </NewsContext.Provider>
-  );
+  )
 }
 
 export default NewsProvider;

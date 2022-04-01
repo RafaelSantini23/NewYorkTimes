@@ -1,12 +1,13 @@
 import { React } from "react";
-// import NewsProvider from "./contexts/NewsContext";
-import Funcionar from "./components/Funcionar";
+import Home from "./pages/Home";
+import NewsProvider from "./contexts/NewsContext";
+
 const App = () => {
   return (
     <div className="App">
-      {/* <NewsProvider> */}
-        <Funcionar />
-      {/* </NewsProvider> */}
+      <NewsProvider>
+        <Home />
+      </NewsProvider>
     </div>
   );
 };
