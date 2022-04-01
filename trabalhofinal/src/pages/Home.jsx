@@ -5,10 +5,10 @@ export default function Home() {
   const { getNews, dados } = useContext(NewsContext)
 
    useEffect(() => {
-        getNews()
+        getNews('home')
    },[])
 
-   console.log(dados);
+   
   return (
     <div>
         <p>aaa</p>

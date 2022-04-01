@@ -8,9 +8,9 @@ function NewsProvider({children}) {
 
   const [ dados, setDados ] = useState({})
 
-  const getNews = async () => {
+  const getNews = async (categoria) => {
     try {
-      const { data } = await api.get("arts.json?api-key=LK7ZHPbBRzDb2WvGKTWDDOJmkjKppZ80");
+      const { data } = await api.get(`${categoria}.json?api-key=LK7ZHPbBRzDb2WvGKTWDDOJmkjKppZ80`);
       setDados(data.results)
       console.log(data);
       console.log(dados);
