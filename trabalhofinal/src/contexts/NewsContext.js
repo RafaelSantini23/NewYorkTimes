@@ -13,7 +13,7 @@ function NewsProvider({children}) {
       const { data } = await api.get("arts.json?api-key=LK7ZHPbBRzDb2WvGKTWDDOJmkjKppZ80");
       setDados(data.results)
       console.log(data);
-      console.log(data.multimedia);
+      console.log(dados);
     } catch (error) {
       console.log(error);
     }
