@@ -2,6 +2,7 @@ import React from "react";
 import { createContext } from "react";
 
 export const NewsContext = createContext();
+
 function NewsProvider({ children }) {
   const teste = "Guilherme se lascou";
   return (
