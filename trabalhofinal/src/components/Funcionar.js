@@ -1,12 +1,22 @@
-import { NewsContext } from "../contexts/NewsContext";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import api from "../api";
 const Funcionar = () => {
-  const { getNews, dados } = useContext(NewsContext);
-  useEffect(() => {
+  const [loading, setLoading] = useState(true);
+  const getNews = async () => {
+    setLoading(false);
+    try {
+      const { data } = await api.get(
+        "arts.json?api-key=LK7ZHPbBRzDb2WvGKTWDDOJmkjKppZ80"
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  if (!loading) {
     getNews();
-    console.log(dados);
-  }, []);
-  return <div>Guilherme se lascou</div>;
+  }
+  return <div>a</div>;
 };
 
 export default Funcionar;
